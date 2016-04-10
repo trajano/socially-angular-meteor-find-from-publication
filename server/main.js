@@ -1,21 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { Parties } from '/imports/api/parties';
+import { Fake } from 'meteor/anti:fake'
+import '/imports/api/users';
 
 Meteor.startup(() => {
     if (Parties.find().count() === 0) {
-        const parties = [{
-            'name': 'Dubstep-Free Zone',
-            'description': 'Fast just got faster with Nexus S.'
-        }, {
-            'name': 'All dubstep all the time',
-            'description': 'Get it on!'
-        }, {
-            'name': 'Savage lounging',
-            'description': 'Leisure suit required. And only fiercest manners.'
-        }];
-
-        parties.forEach((party) => {
+        for (let i = 0; i < 100; ++i) {
+            const party = {
+                name : Fake.sentence(),
+                description: Fake.paragraph(),
+                public: true
+            }
             Parties.insert(party)
-        });
+        }
     }
 });
