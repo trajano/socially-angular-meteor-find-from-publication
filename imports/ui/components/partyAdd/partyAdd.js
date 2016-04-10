@@ -1,12 +1,25 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Parties } from '/imports/api/parties';
 
 import './partyAdd.html';
 
 class PartyAdd {
+    constructor() {
+        this.party = {};
+    }
+
+    submit() {
+        Parties.insert(this.party);
+        this.reset();
+    }
+
+    reset() {
+        this.party = {};
+    }
 }
 
-const name = 'partyAdd';
+export const name = 'partyAdd';
 
 // create a module
 export default angular.module(name, [
