@@ -3,6 +3,7 @@ import angularMeteor from 'angular-meteor';
 import { Parties } from '/imports/api/parties/collection';
 import './partiesList.html'
 import { name as PartyAdd } from '../partyAdd/partyAdd';
+import PartiesFavorite from '../partiesFavorite';
 import { name as PartyRemove } from '../partyRemove'
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
@@ -46,7 +47,7 @@ const name = 'partiesList';
 
 // create a module
 export default angular.module(name, [
-    angularMeteor, PartyAdd, PartyRemove, uiRouter, utilsPagination, PartiesSort
+    angularMeteor, PartyAdd, PartyRemove, uiRouter, utilsPagination, PartiesSort, PartiesFavorite
 ]).component(name, {
         templateUrl: `imports/ui/components/${name}/${name}.html`,
         controllerAs: name,
