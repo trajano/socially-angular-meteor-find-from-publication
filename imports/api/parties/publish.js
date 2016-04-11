@@ -4,7 +4,7 @@ import { Counts } from 'meteor/tmeasday:publish-counts';
 import { Parties } from './collection';
 
 if (Meteor.isServer) {
-    Meteor.publish('parties', function(options, searchString) {
+    FindFromPublication.publish('parties', function(options, searchString) {
         const selector = {
             $or: [{
                 // the public parties

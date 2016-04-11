@@ -27,7 +27,7 @@ class PartiesList {
         }, this.getReactively('searchText')
         ]);
         this.helpers({
-            parties: () => Parties.find({}, {
+            parties: () => Parties.findFromPublication('parties', {}, {
                 sort: this.getReactively('sort')
             }),
             partiesCount: () => Counts.get('numberOfParties')
