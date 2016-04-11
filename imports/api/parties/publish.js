@@ -41,7 +41,7 @@ if (Meteor.isServer) {
         return Parties.find(selector, options);
     });
 
-    Meteor.publish('favoriteParties', function() {
+    FindFromPublication.publish('favoriteParties', function() {
         return Parties.find({
             favoritedBy: this.userId
         });

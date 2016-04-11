@@ -60,6 +60,7 @@ npm-mongo@1.4.42
 observe-sequence@1.0.10
 ordered-dict@1.0.6
 pbastowski:angular-babel@1.3.3
+percolate:find-from-publication@0.1.0
 promise@0.6.6
 random@1.0.8
 rate-limit@1.0.3

@@ -21,3 +21,4 @@ anti:fake
 accounts-password
 dotansimha:accounts-ui-angular
 tmeasday:publish-counts
+percolate:find-from-publication

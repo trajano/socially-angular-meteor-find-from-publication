@@ -11,7 +11,7 @@ class PartiesFavoriteList {
         this.subscribe('favoriteParties');
         this.helpers({
             // Not going to work as expected because we are getting values from the other subscription
-            parties: () => Parties.find({}, {
+            parties: () => Parties.findFromPublication('favoriteParties', {}, {
                 sort: {
                     name: 1
                 }
