@@ -27,18 +27,28 @@ class PartyDetails {
                 return Meteor.users.find({});
             }
         });
+        this.autorun(() => {
+            this.userFavorite = this.getReactively('party').favoritedBy.indexOf(Meteor.userId()) !== -1
+        })
     }
 
     save() {
-        Parties.update({
-            _id: this.party._id
-        }, {
+        const update = {
             $set: {
                 name: this.party.name,
                 description: this.party.description,
                 public: this.party.public
             }
-        }, (error) => {
+        }
+        if (this.userFavorite) {
+            update['$addToSet'] = { favoritedBy: Meteor.userId() }
+        } else {
+            update['$pull'] = { favoritedBy: Meteor.userId() }
+        }
+
+        Parties.update({
+            _id: this.party._id
+        }, update, (error) => {
             if (error) {
                 console.log('Oops, unable to update the party...' + error);
             } else {

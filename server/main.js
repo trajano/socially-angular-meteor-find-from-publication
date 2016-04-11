@@ -9,7 +9,8 @@ Meteor.startup(() => {
             const party = {
                 name : Fake.sentence(),
                 description: Fake.paragraph(),
-                public: true
+                public: true,
+                favoritedBy: []
             }
             Parties.insert(party)
         }
