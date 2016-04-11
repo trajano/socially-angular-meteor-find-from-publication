@@ -9,9 +9,15 @@ class PartiesFavoriteList {
         $reactive(this).attach($scope);
 
         this.subscribe('favoriteParties');
+        this.subscribe('allParties');
         this.helpers({
             // Not going to work as expected because we are getting values from the other subscription
             parties: () => Parties.findFromPublication('favoriteParties', {}, {
+                sort: {
+                    name: 1
+                }
+            }),
+            allParties: () => Parties.find({}, {
                 sort: {
                     name: 1
                 }

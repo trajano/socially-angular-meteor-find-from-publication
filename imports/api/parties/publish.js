@@ -46,4 +46,9 @@ if (Meteor.isServer) {
             favoritedBy: this.userId
         });
     })
+
+    Meteor.publish('allParties', function() {
+        return Parties.find({});
+    })
+
 }

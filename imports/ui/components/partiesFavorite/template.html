@@ -8,3 +8,14 @@
         <party-remove party="party"></party-remove>
     </li>
 </ul>
+
+<h2>All parties</h2>
+<ul>
+    <li ng-repeat="party in partiesFavorite.allParties">
+        <a ui-sref="partyDetails({ partyId: party._id })">
+            {{party.name}}
+        </a>
+        <p>{{party.description}}</p>
+        <party-remove party="party"></party-remove>
+    </li>
+</ul>
